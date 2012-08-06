@@ -26,13 +26,17 @@ $post_id = get_the_ID();
 example-plugin
 ├── css
 │   ├── admin.css
-│   └── frontend.css
+│   ├── admin.dev.css
+│   ├── frontend.css
+│   └── frontend.dev.css
 ├── example-plugin.php
 ├── images
 │   └── inpsyde_logo.png
 ├── js
 │   ├── admin.js
-│   └── frontend.js
+│   ├── admin.dev.js
+│   ├── frontend.js
+│   └── frontend.dev.js
 ├── languages
 ├── lib
 └── inc
@@ -41,6 +45,8 @@ example-plugin
 :question: Wie ist `lib` strukturiert, so dass Klassen Autoloading bei Namespaces am besten funktioniert?
 
 :question: `lib` hat nur Fremdlibs inne, `inc` unsere eigenen Sachen bzw. erstelltes
+
+:question: `.dev` nutze ich für die Erstellung der lesbarren Variante in js und css; ohne `.dev` ist minifiziert, ohne Kommentate, console.log() oder auch Sass etc.
 
 ## PHP 5.3 Plugin Vorlage
 
