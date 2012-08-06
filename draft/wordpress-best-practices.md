@@ -49,13 +49,15 @@ Wenn ein Plugin für PHP 5.3 entwickelt wird, sollte die Plugindatei wie im Beis
 ```php
 <?php
 /**
- * Plugin Name: 
- * Plugin URI:  
- * Description: 
- * Version:     
- * Author:      
- * Author URI:  
- * License:     
+ * Plugin Name: Foo
+ * Plugin URI:  http://marketpress.com/example-plugin/
+ * Text Domain: foo
+ * Domain Path: /languages
+ * Description: A small description
+ * Version:     0.0.1
+ * Author:      Max Mustermann
+ * Author URI:  http://inpsyde.com/
+ * License:     GPLv3
  */
 
 $correct_php_version = version_compare( phpversion(), '5.3', '>=' );
