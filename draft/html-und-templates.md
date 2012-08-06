@@ -26,9 +26,11 @@ Ein Doctype ist Pflicht. Im Normalfall sollte der `html5` Doctype verwendet werd
 ```html
 <!-- gut -->
 <div class="vcard">
-	<span class="first_name">John</span>
-	<span class="last_name">Doe</span>
-	<div class="bio">
+	<span class="fn n">
+		<span class="given-name">John</span>
+		<span class="family-name">Doe</span>
+	</span>
+	<div class="biography">
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 			sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -44,8 +46,8 @@ Ein Doctype ist Pflicht. Im Normalfall sollte der `html5` Doctype verwendet werd
 
 <!-- schlecht -->
 <div class="vcard">
-	<span class="first_name">John</span><span class="last_name">Doe</span>	
-	<div class="bio"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p><p>Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+	<span class="fn n"><span class="given-name">John</span><span class="family-name">Doe</span></span>
+	<div class="biography"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p><p>Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
 </div>
 ```
 
@@ -58,10 +60,11 @@ Sobald in einem PHP-Abschnitt mehr als ein Tag ausgegeben wird, muss zur bessere
 
 ```php
 <?php 
-function the_vcard_name( $first, $last ) {
+function the_vcard_name( $first = NULL, $last = NULL ) {
+	
 	?>
-	<span class="first_name"><?php echo $first; ?></span>
-	<span class="last_name"><?php echo $last; ?></span>
+	<span class="given-name"><?php echo $first; ?></span>
+	<span class="family-name"><?php echo $last; ?></span>
 	<?php
 }
 ?>
