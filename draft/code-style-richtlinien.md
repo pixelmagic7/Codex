@@ -66,6 +66,7 @@ $a = ( $condition ) ? ( ( $condition2 ) ? 42 : 23 ) : 'bar';
 <?php
 // korrekt
 function foo() {
+    
     if ( true ) {
         bar();
     }
@@ -97,16 +98,17 @@ Zwischen dem Namen der Methode oder Funktion und der öffnenden Klammer darf kei
 
 > Ich überlege, die Leerzeichen nach öffnenden und vor schließenden runden Klammern generell optional zu gestalten.
 > Ich glaube, im Moment sind sie Pflicht. Jedoch widerspricht das jeder PHP Richtlinie außerhalb des WordPressversums. Selbst der WordPress Core hält sich oft genug nicht daran ...
+> Hier bin ich für Whitespace zu gunsten der Lesbarkeit. Oft fehlen die nur wegen Speed beim Schreiben, nicht wegen faktischer Gründe.
 
 ```php
 <?php
 bar();
-$foo->bar($arg1);
-Foo::bar($arg2, $arg3);
+$foo->bar( $arg1 );
+Foo::bar( $arg2, $arg3 );
 ?>
 ```
 
-Argumentlisten kônnen zur Verbesserung der Lesbarkeit auf mehrere Zeilen aufgeteilt werden. Dann werden alle Elemente um eine Ebene eingerückt, das erste Argument steht auf einer eigenen Zeile und es befindet sich genau ein Argument auf jeder Zeile. Auch die schließende Klammer befindet sich auf einer neuen Zeile.
+Argumentlisten können zur Verbesserung der Lesbarkeit auf mehrere Zeilen aufgeteilt werden. Dann werden alle Elemente um eine Ebene eingerückt, das erste Argument steht auf einer eigenen Zeile und es befindet sich genau ein Argument auf jeder Zeile. Auch die schließende Klammer befindet sich auf einer neuen Zeile.
 
 ```php
 <?php
