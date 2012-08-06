@@ -8,3 +8,5 @@
 - Booleans `TRUE`, `FALSE` und der Spezialwert `NULL` sind groß zu schreiben.
 
 > Wirklich? `var_dump((bool) 1);` gibt `bool(true)` aus. Ist letztlich aber eine Frage des Geschmacks.
+
+> Dateinamen, insbesondere bei Klassen `class-upper_snake_case.php` und bei Funktionen ohne Klasse, gern mit Namespace `lower_case_with_underscores.php`
