@@ -34,10 +34,13 @@ example-plugin
 │   ├── admin.js
 │   └── frontend.js
 ├── languages
-└── lib
+├── lib
+└── inc
 ```
 
 :question: Wie ist `lib` strukturiert, so dass Klassen Autoloading bei Namespaces am besten funktioniert?
+
+:question: `lib` hat nur Fremdlibs inne, `inc` unsere eigenen Sachen bzw. erstelltes
 
 ## PHP 5.3 Plugin Vorlage
 
@@ -45,17 +48,17 @@ Wenn ein Plugin für PHP 5.3 entwickelt wird, sollte die Plugindatei wie im Beis
 
 ```php
 <?php
-/*
-Plugin Name: 
-Plugin URI: 
-Description: 
-Version: 
-Author: 
-Author URI: 
-License: 
-*/
+/**
+ * Plugin Name: 
+ * Plugin URI:  
+ * Description: 
+ * Version:     
+ * Author:      
+ * Author URI:  
+ * License:     
+ */
 
-$correct_php_version = version_compare( phpversion(), "5.3", ">=" );
+$correct_php_version = version_compare( phpversion(), '5.3', '>=' );
 
 if ( ! $correct_php_version ) {
 	echo "This Plugin requires <strong>PHP 5.3</strong> or higher.<br>";
@@ -64,5 +67,5 @@ if ( ! $correct_php_version ) {
 }
 
 require_once 'plugin.php';
-?>
+
 ```
