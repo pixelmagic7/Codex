@@ -13,14 +13,46 @@ Diese Sektion benennt allgemeine PHP Code Style Richtlinien. Sofern nicht anders
 ## Allgemeines
 
 - Es ist nur genau eine Anweisung pro Zeile gestattet.
+- Vor und nach folgenden Operatoren steht ein Leerzeichen: `!` `*` `/` `%` `+` `-` `.` `<<` `>>` `<` `<=` `>` `>=` `==` `!=` `===` `!==` `&` `^` `|` `&&` `||` `?` `:` `=` `+=` `-=` `*=` `/=` `.=` `%=` `&=` `|=` `^=` `<<=` `>>=` `and` `xor` `or` `,`
 
 ## Kontrollstrukturen
 
+Im Kopf von Kontrollstrukturen finden keine Zuweisungen statt.
+
+```php
+<?php
+// richtig
+$a = foo( $b );
+if ( $a ) {
+    // code
+}
+
+// falsch
+if ( $a = foo( $b ) ) {
+    // code
+}
+?>
+```
+
 ### if, then, else
+
+Der ternäre Operator `?:` ist erlaubt, darf aber nicht geschachtelt werden.
+
+```php
+<?php
+// richtig
+$a = ( $condition ) ? 'foo' : 'bar';
+
+// falsch
+$a = ( $condition ) ? ( ( $condition2 ) ? 42 : 23 ) : 'bar';
+?>
+```
 
 ### while
 
 ### for
+
+### foreach
 
 ### switch
 
