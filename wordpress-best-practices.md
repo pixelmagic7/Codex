@@ -20,6 +20,25 @@ $post_id = get_the_ID();
 ?>
 ```
 
+## Plugin Dateistruktur
+
+```
+example-plugin
+├── css
+│   ├── admin.css
+│   └── frontend.css
+├── example-plugin.php
+├── images
+│   └── inpsyde_logo.png
+├── js
+│   ├── admin.js
+│   └── frontend.js
+├── languages
+└── lib
+```
+
+:question: Wie ist `lib` strukturiert, so dass Klassen Autoloading bei Namespaces am besten funktioniert?
+
 ## PHP 5.3 Plugin Vorlage
 
 Wenn ein Plugin für PHP 5.3 entwickelt wird, sollte die Plugindatei wie im Beispiel aussehen. Das sorgt dafür, dass Nutzer mit einer zu alten PHP Version beim Aktivieren des Plugins eine ordentliche Fehlermeldung angezeigt bekommen anstatt z.B. eines Syntaxfehlers.
