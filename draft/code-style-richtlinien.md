@@ -139,12 +139,12 @@ Mehrdimensionale Arrays schreibt man wie folgt, wobei das Array im Array immer g
 ```php
 <?php
 $my_array = array(
-    'foo'    => $bar,
-	'rab'    => $oof,
-	'foobar' => array(
-		'bar'    => $foo,
-		'oof'    => $rab,
-		'barfoo' => $raboof
+	'foo'   	=> $bar,
+	'rab'		=> $oof,
+	'foobar'	=> array(
+		'bar'		=> $foo,
+		'oof'		=> $rab,
+		'barfoo'	=> $raboof
 	),
 );
 ?>
@@ -155,7 +155,7 @@ Mehrdimensionale Arrays mit mehr als fünf Parametern müssen ausgelagert werden
 ```php
 <?php
 $labels = array(
-    'name'			=> __( 'Foo', $this->get_textdomain() ),
+	'name'			=> __( 'Foo', $this->get_textdomain() ),
 	'add_new'		=> __( 'Add Foo', $this->get_textdomain() ),
 	'new_item'		=> __( 'New Foo', $this->get_textdomain() ),
 	'all_items'		=> __( 'All Foo', $this->get_textdomain() ),
