@@ -14,6 +14,14 @@ Ein Doctype ist Pflicht. Im Normalfall sollte der `html5` Doctype verwendet werd
 
 ### Richtlinien
 
+- Shorttags werden in HTML5 schreibweise geschrieben:
+
+```html
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta name="description" content="Foo">
+<br>
+```
+
 - Absätze sind in `<p>` Tags zu setzen. Aufeinanderfolgende `<br/>` Tags sind zu vermeiden.
 - Anführungszeichen um Attribte müssen zur besseren Lesbarkeit immer geschrieben werden.
 
