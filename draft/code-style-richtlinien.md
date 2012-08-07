@@ -120,4 +120,78 @@ $foo->bar(
 ?>
 ```
 
+## Arrays
 
+Arrays bieten eine tolle Möglichkeit in hunderten verschiedenen Stylings unter zu gehen. Wir orientieren uns hier am Codex und Core von WordPress, den wir ein bisschen erweitern. Denn bei uns bekommt jedes Element eine eigene Zeile, das Komma kommt an das Ende und die Klammern auf eigene Zeilen und die Zuweisungszeichen werden mit Tabs auf eine Spalte gebracht.:
+
+```php
+<?php
+$my_array = array(
+    'foo'    => $bar,
+	'rab'    => $oof,
+	'foobar' => $barfoo
+);
+?>
+```
+
+Mehrdimensionale Arrays schreibt man wie folgt, wobei das Array im Array immer ganz unten zu stehen hat:
+
+```php
+<?php
+$my_array = array(
+    'foo'    => $bar,
+	'rab'    => $oof,
+	'foobar' => array(
+		'bar'    => $foo,
+		'oof'    => $rab,
+		'barfoo' => $raboof
+	),
+);
+?>
+```
+
+Mehrdimensionale Arrays mit mehr als fünf Parametern müssen ausgelagert werden:
+
+```php
+<?php
+$labels = array(
+    'name'			=> __( 'Foo', $this->get_textdomain() ),
+	'add_new'		=> __( 'Add Foo', $this->get_textdomain() ),
+	'new_item'		=> __( 'New Foo', $this->get_textdomain() ),
+	'all_items'		=> __( 'All Foo', $this->get_textdomain() ),
+	'view_item'		=> __( 'View Foo', $this->get_textdomain() ),
+	'edit_item'		=> __( 'Edit Foo', $this->get_textdomain() ),
+	'not_found'		=> __( 'No Foo added yet', $this->get_textdomain() ),
+	'menu_name'		=> __( 'Foo', $this->get_textdomain() ),
+	'add_new_item'		=> __( 'Add New Foo', $this->get_textdomain() ),
+	'search_items'		=> __( 'Search Foo', $this->get_textdomain() ),
+	'singular_name'		=> __( 'Foo', $this->get_textdomain() ),
+	'parent_item_colon'	=> __( 'Parent Foo', $this->get_textdomain() ),
+	'not_found_in_trash'	=> __( 'Nothing found in trash', $this->get_textdomain() ),
+);
+
+$support = array(
+	'title',
+	'editor',
+	'excerpt',
+	'comments',
+	'revision',
+	'thumbnail',
+	'custom-fields'
+);
+
+$args = array(
+	'public'		=> true,
+	'labels'		=> $labels,
+	'show_ui'		=> true,
+	'rewrite'		=> true,
+	'supports'		=> $support,
+	'query_var'		=> true,
+	'has_archive'		=> true,
+	'hierarchical'		=> false,
+	'menu_position'		=> null,
+	'capability_type'	=> 'post',
+	'publicly_queryable'	=> true
+);
+?>
+```
