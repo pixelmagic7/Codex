@@ -208,7 +208,7 @@ $foo->bar(
 
 ## Arrays
 
-Arrays bieten eine tolle Möglichkeit in hunderten verschiedenen Stylings unter zu gehen. Wir orientieren uns hier am Codex und Core von WordPress, den wir ein bisschen erweitern. Denn bei uns bekommt jedes Element eine eigene Zeile, das Komma kommt an das Ende und die Klammern auf eigene Zeilen und die Zuweisungszeichen werden mit Tabs auf eine Spalte gebracht.:
+Wir orientieren uns hier am Codex und Core von WordPress, den wir ein bisschen erweitern. Denn bei uns bekommt jedes Element eine eigene Zeile, das Komma kommt an das Ende und die Klammern auf eigene Zeilen und die Zuweisungszeichen werden mit Tabs auf eine Spalte gebracht.:
 
 ```php
 <?php
