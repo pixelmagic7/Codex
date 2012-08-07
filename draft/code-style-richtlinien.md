@@ -34,7 +34,52 @@ if ( $a = foo( $b ) ) {
 ?>
 ```
 
-### if, then, else
+### if, else, elseif
+
+Klammern sind Pflicht, außer bei einzelnen Anwesungen im Block. Beinhaltet mindestens ein Block mehr als eine Anweisung, müssen alle anderen Blöcke auch geklammert werden.
+
+```php
+<?php
+// richtig
+if ( $c )
+	return;
+
+// richtig
+if ( $c ) {
+	$foo = 3;
+	return;
+}
+
+// falsch
+if ( $c ) return;
+
+// richtig
+if ( $c ) {
+	# code...
+} else {
+	# code...
+}
+
+// richtig
+if ( $c )
+	return 'a';
+else
+	return 'b';
+
+// falsch
+if ( $c )
+	# code...
+else {
+	# code...
+}
+
+// falsch
+if ( $c ) {
+	# code...
+} else
+	# code...
+?>
+```
 
 Der ternäre Operator `?:` ist erlaubt, darf aber nicht geschachtelt werden.
 
@@ -50,11 +95,52 @@ $a = ( $condition ) ? ( ( $condition2 ) ? 42 : 23 ) : 'bar';
 
 ### while
 
+```php
+<?php 
+while ( $something_is_true ) {
+	# code...
+}
+?>
+```
+
 ### for
 
+Aus Performancegründen sollten die Schleifengrenzen vor der `for`-Schleife berechnet werden. Wenn möglich, sollte `foreach` statt `for` benutzt werden.
+
+```php
+<?php 
+$length = strlen( $foo );
+for ( $i = 0; $i < $length; $i++ ) { 
+	# code...
+}
+?>
+```
 ### foreach
 
+```php
+<?php 
+foreach ( $data as $key => $value ) {
+	# code...
+}
+?>
+```
+
 ### switch
+
+Das bewusste Auslassen von `break` ist nicht erwünscht, da es Quelle schwer nachvollziehbarer Fehler sein kann.
+
+```php
+<?php 
+switch ( $foo ) {
+	case 'bar':
+		# code...
+		break;
+	default:
+		# code...
+		break;
+}
+?>
+```
 
 ## Klammersetzung
 
