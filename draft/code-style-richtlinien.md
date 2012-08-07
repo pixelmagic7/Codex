@@ -177,32 +177,53 @@ function foo()
 - Property- und Methodennamen beginnen nicht mit einem Underscore.
 - Dem Methodennamen folgt kein Leerzeichen.
 - Es dürfen Methoden nur dann statisch aufgerufen werden, wenn diese auch explizit mit `static` als solche deklariert wurden.
-- nichttriviale Funktionen sind mit [PHPDoc](http://www.phpdoc.org/) zu dokumentieren
+- Funktionen sind mit [PHPDoc](http://www.phpdoc.org/) zu dokumentieren
 
 ```php
 <?php
+
 /**
- * Method summary in one sentence.
+ * Class summary in one sentence.
  *
  * More documentation can go here.
  * Go into nitty gritty details if you like.
  *
- * Examples:
- *   // you may even provide usage examples if necessary
- *   echo get_some_magic();
+ * @since   MM/DD/YYYY VERSION
+ * @version MM/DD/YYYY
+ * @author  eteubert
  * 
- * @param  boolean $sparkles Should it sparkle or not?
- * @param  string  $spell    Name of the magic spell.
- * @return string            Let magic happen.
  */
-public function get_some_magic( $sparkles = TRUE, $spell = 'abrakadabra' ) {
+class Class_Name {
+	
+	/**
+	 * Method summary in one sentence.
+	 *
+	 * More documentation can go here.
+	 * Go into nitty gritty details if you like.
+	 *
+	 * Examples:
+	 *   // you may even provide usage examples if helpful
+	 *   echo get_some_magic();
+	 *
+	 * [@since   MM/DD/YYYY] // (optional) first introduction
+	 * [@version MM/DD/YYYY] // (optional) latest change
+	 * [@author  eteubert]   // (optional) author, if different from class author
+	 * [@uses    enchant]    // (optional)
+	 *
+	 * @param  boolean $sparkles Should it sparkle or not?
+	 * @param  string  $spell    Name of the magic spell.
+	 * @return string            Let magic happen.
+	 */
+	public function get_some_magic( $sparkles = TRUE, $spell = 'abrakadabra' ) {
 
-	if ( $sparkles )
-		$out = '*sparkle* ' . $spell . ' *sparkle*';
-	else
-		$out = $spell;
+		if ( $sparkles )
+			$out = '*sparkle* ' . enchant( $spell ) . ' *sparkle*';
+		else
+			$out = $spell;
 
-	return $out . '!';
+		return $out . '!';
+	}
+
 }
 ?>
 ```
