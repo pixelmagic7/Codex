@@ -30,23 +30,39 @@ example-plugin
 │   ├── frontend.css
 │   └── frontend.dev.css
 ├── example-plugin.php
+├── features
 ├── images
 │   └── inpsyde_logo.png
+├── inc
 ├── js
-│   ├── admin.js
 │   ├── admin.dev.js
-│   ├── frontend.js
-│   └── frontend.dev.js
+│   ├── admin.js
+│   ├── frontend.dev.js
+│   └── frontend.js
 ├── languages
-├── lib
-└── inc
+└── lib
 ```
 
-:question: Wie ist `lib` strukturiert, so dass Klassen Autoloading bei Namespaces am besten funktioniert?
+## inc Ordner
 
-:question: `lib` hat nur Fremdlibs inne, `inc` unsere eigenen Sachen bzw. erstelltes
+Der `inc/` Ordner enthält den gesamten für das Plugin geschriebenen Code. Der Basis-Namespace ist `\Inpsyde\<Plugin Name>\`. Es können beliebige Subnamespaces angelegt werden. Jeder Subnamespace wird durch einen Ordner im Dateisystem repräsentiert.
 
-:question: `.dev` nutze ich für die Erstellung der lesbarren Variante in js und css; ohne `.dev` ist minifiziert, ohne Kommentate, console.log() oder auch Sass etc.
+## lib Ordner
+
+Der `lib/` Ordner kann PHP Code aus externen Bibliotheken enthalten.
+
+## features Ordner
+
+Der `features/` Ordner enthält Dateien, welche Features für die Pro-Version des Plugins bereitstellen. `features/` enthält nur Dateien, keine Ordner. Jeder dieser Dateien hat den Namespace `\Inpsyde\<Plugin Name>\Features`. Die Dateien dürfen Abhängigkeiten zu Methoden und Klassen aus `inc/` und `lib/` haben, aber nicht untereinander.
+
+## .dev Assets
+
+CSS und JavaScript Dateien werden als `<filename>.dev.<extension>` entwickelt. Darin sind Kommentare erlaubt und erwünscht.
+
+Produktiv ausgeliefert wird eine von Kommentaren befreite und minifizierte `<filename>.<extension>`.
+
+- http://jscompress.com/ (JS)
+- http://refresh-sf.com/yui/ (JS & CSS)
 
 ## PHP 5.3 Plugin Vorlage
 
