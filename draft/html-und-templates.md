@@ -77,3 +77,20 @@ function the_vcard_name( $first = NULL, $last = NULL ) {
 }
 ?>
 ```
+
+In HTML-Abschnitten ist die [Alternative Syntax für Kontrollstrukturen](http://php.net/manual/de/control-structures.alternative-syntax.php) zu verwenden.
+
+```php
+<div class="people">
+	<?php foreach ( $people as $person ): ?>
+		<div class="person">
+			<?php if ( $person->has_avatar() ): ?>
+				<div class="avatar"><?php echo $person->get_avatar(); ?></div>
+			<?php endif; ?>
+			<span class="given-name"><?php echo $person->first; ?></span>
+			<span class="family-name"><?php echo $person->last; ?></span>
+			<!-- more html ... -->
+		</div>
+	<?php endforeach; ?>
+</div>
+```
