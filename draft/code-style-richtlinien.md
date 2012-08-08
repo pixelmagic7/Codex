@@ -329,3 +329,11 @@ $args = array(
 );
 ?>
 ```
+
+Bei Zugriff auf Arrays sind in den eckigen Klammern, anders als im WordPress Codex, immer Leerzeichen zu setzen.
+
+```php
+<?php
+$element = $field[ 'foo' ][ $bar ];
+?>
+```
