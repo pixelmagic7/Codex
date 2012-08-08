@@ -153,7 +153,7 @@ switch ( $foo ) {
 // korrekt
 function foo() {
     
-    if ( true ) {
+    if ( TRUE ) {
         bar();
     }
 }
@@ -161,7 +161,7 @@ function foo() {
 // falsch
 function foo()
 {
-    if( true ) {
+    if( TRUE ) {
         bar ();
     }
 }
@@ -181,7 +181,6 @@ function foo()
 
 ```php
 <?php
-
 /**
  * Class summary in one sentence.
  *
@@ -191,7 +190,6 @@ function foo()
  * @since   MM/DD/YYYY VERSION
  * @version MM/DD/YYYY
  * @author  eteubert
- * 
  */
 class Class_Name {
 	
@@ -317,17 +315,17 @@ $support = array(
 );
 
 $args = array(
-	'public'		=> true,
+	'public'		=> TRUE,
 	'labels'		=> $labels,
-	'show_ui'		=> true,
-	'rewrite'		=> true,
+	'show_ui'		=> TRUE,
+	'rewrite'		=> TRUE,
 	'supports'		=> $support,
-	'query_var'		=> true,
-	'has_archive'		=> true,
-	'hierarchical'		=> false,
-	'menu_position'		=> null,
+	'query_var'		=> TRUE,
+	'has_archive'		=> TRUE,
+	'hierarchical'		=> FALSE,
+	'menu_position'		=> NULL,
 	'capability_type'	=> 'post',
-	'publicly_queryable'	=> true
+	'publicly_queryable'	=> TRUE
 );
 ?>
 ```
