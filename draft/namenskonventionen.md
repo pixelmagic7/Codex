@@ -7,4 +7,7 @@
 - PHP [Schlüsselworte](http://php.net/manual/de/reserved.keywords.php) sind klein zu schreiben.
 - Booleans `TRUE`, `FALSE` und der Spezialwert `NULL` sind groß zu schreiben.
 
-> Dateinamen, insbesondere bei Klassen `class-upper_snake_case.php` und bei Funktionen ohne Klasse, gern mit Namespace `lower_case_with_underscores.php`
+## Dateinamen
+
+- Klassendateinamen bekommen ein `class-` Präfix. Danach folgt der Klassenname in lowercase: `class-my_little_pony.php`
+- Sonstige Dateinamen ebenfalls lowercase mit Underscores: `all_the_ponies.php`
