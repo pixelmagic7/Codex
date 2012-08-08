@@ -43,19 +43,19 @@ example-plugin
 └── lib
 ```
 
-## inc Ordner
+### inc Ordner
 
 Der `inc/` Ordner enthält den gesamten für das Plugin geschriebenen Code. Der Basis-Namespace ist `\Inpsyde\<Plugin Name>\`. Es können beliebige Subnamespaces angelegt werden. Jeder Subnamespace wird durch einen Ordner im Dateisystem repräsentiert.
 
-## lib Ordner
+### lib Ordner
 
 Der `lib/` Ordner kann PHP Code aus externen Bibliotheken enthalten.
 
-## features Ordner
+### features Ordner
 
 Der `features/` Ordner enthält Dateien, welche Features für die Pro-Version des Plugins bereitstellen. `features/` enthält nur Dateien, keine Ordner. Jeder dieser Dateien hat den Namespace `\Inpsyde\<Plugin Name>\Features`. Die Dateien dürfen Abhängigkeiten zu Methoden und Klassen aus `inc/` und `lib/` haben, aber nicht untereinander.
 
-## .dev Assets
+### .dev Assets
 
 CSS und JavaScript Dateien werden als `<filename>.dev.<extension>` entwickelt. Darin sind Kommentare erlaubt und erwünscht.
 
