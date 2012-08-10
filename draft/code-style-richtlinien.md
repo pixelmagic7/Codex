@@ -14,6 +14,7 @@ Diese Sektion benennt allgemeine PHP Code Style Richtlinien. Sofern nicht anders
 
 - Es ist nur genau eine Anweisung pro Zeile gestattet.
 - Vor und nach folgenden Operatoren steht ein Leerzeichen: `!` `*` `/` `%` `+` `-` `.` `<<` `>>` `<` `<=` `>` `>=` `==` `!=` `===` `!==` `&` `^` `|` `&&` `||` `?` `:` `=` `+=` `-=` `*=` `/=` `.=` `%=` `&=` `|=` `^=` `<<=` `>>=` `and` `xor` `or` `,`
+- In Vergleichsoperationen mit Konstanten ist die "intuitive" Reihenfolge zu verwenden, d.h. die Konstante steht rechts (`$i > 5`). "Yoda-Conditions" (`true == $the_force`) sind nicht erwünscht.
 
 ## Kontrollstrukturen
 
