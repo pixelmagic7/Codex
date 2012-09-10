@@ -64,6 +64,26 @@ Produktiv ausgeliefert wird eine von Kommentaren befreite und minifizierte `<fil
 - http://jscompress.com/ (JS)
 - http://refresh-sf.com/yui/ (JS & CSS)
 
+## Keine `class_exists` Checks zur Kollisionsvermeidung
+
+In PHP 5.2 Plugins ist es üblich, alle Klassen in ein `class_exists` zu wrappen. Das ist mit Namespaces nicht mehr notwendig, weshalb darauf verzichtet werden kann.
+
+```
+<?php
+// PHP 5.2
+if ( ! class_exists( 'Class_Name' ) ) {
+    class Class_Name {
+        // ...      
+    }
+}
+
+// PHP 5.3 with namespaces
+class Class_Name {
+    // ...      
+}
+?>
+```
+
 ## PHP 5.3 Plugin Vorlage
 
 Wenn ein Plugin für PHP 5.3 entwickelt wird, sollte die Plugindatei wie im Beispiel aussehen. Das sorgt dafür, dass Nutzer mit einer zu alten PHP Version beim Aktivieren des Plugins eine ordentliche Fehlermeldung angezeigt bekommen anstatt z.B. eines Syntaxfehlers.
