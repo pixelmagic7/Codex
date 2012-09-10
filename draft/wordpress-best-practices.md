@@ -68,7 +68,7 @@ Produktiv ausgeliefert wird eine von Kommentaren befreite und minifizierte `<fil
 
 In PHP 5.2 Plugins ist es üblich, alle Klassen in ein `class_exists` zu wrappen. Das ist mit Namespaces nicht mehr notwendig, weshalb darauf verzichtet werden kann.
 
-```
+```php
 <?php
 // PHP 5.2
 if ( ! class_exists( 'Class_Name' ) ) {
