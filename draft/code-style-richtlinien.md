@@ -7,6 +7,7 @@ Diese Sektion benennt allgemeine PHP Code Style Richtlinien. Sofern nicht anders
 - Dateien beginnen mit `<?php`. Kurze Tags sind nie erlaubt.
 - Dateien enden nie mit dem schließenden Tag, um versehentliche Leerzeichen zu verhindern.
 - Dateien werden in UTF-8 enkodiert.
+- Es werden UNIX-Zeilenenden verwendet (`LF`)
 - Code wird mit Tabs eingerückt.
 - Es gibt kein erzwungenes Limit in der Zeilenlänge. Es soll jedoch angestrebt werden, 80 bzw. 120 Zeichen einzuhalten.
 
