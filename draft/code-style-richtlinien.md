@@ -208,6 +208,7 @@ class Class_Name {
 	 * [@since   MM/DD/YYYY] // (optional) first introduction
 	 * [@version MM/DD/YYYY] // (optional) latest change
 	 * [@author  eteubert]   // (optional) author, if different from class author
+	 * [@wp-hook init]       // (optional) which hooks is this function connected to?
 	 * [@uses    enchant]    // (optional)
 	 *
 	 * @param  boolean $sparkles Should it sparkle or not?
