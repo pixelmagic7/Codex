@@ -6,16 +6,5 @@ Diskussionen sollten bevorzugt über Issues gestartet werden. Im Anschluss an di
 
 ## Entwickler mit Stimmrecht
 
-Alphabetisch sortiert. Wenn sich jemand nicht wiederfindet, bitte schreien.
-
-1. @bueltge (Frank)
-1. @dasllama (Thomas)
-1. @dnaber-de (David)
-1. @eteubert (Eric)
-1. @jjoeris (Julian)
-1. @Necrotex (Andre)
-1. @nullbytes (Robert)
-1. @paddelboot (Michael)
-1. @Stefan39 (Stefan)
-1. @stilnick (Nick)
-1. @toscho (Thomas)
+ * sind Teil der [Inpsyde GmbH](http://inpsyde.com)
+ * insbesondere sind sie bei [Github](https://github.com/inpsyde) aktiv
