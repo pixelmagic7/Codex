@@ -35,7 +35,7 @@ if ( $a ) {
 if ( $a = foo( $b ) ) {
     // code
 }
-?>
+
 ```
 
 #### if, else, elseif
@@ -82,7 +82,7 @@ if ( $c ) {
 	# code...
 } else
 	# code...
-?>
+
 ```
 
 Der ternäre Operator `?:` ist erlaubt, darf aber nicht geschachtelt werden.
@@ -94,7 +94,7 @@ $a = ( $condition ) ? 'foo' : 'bar';
 
 // falsch
 $a = ( $condition ) ? ( ( $condition2 ) ? 42 : 23 ) : 'bar';
-?>
+
 ```
 
 #### while
@@ -104,7 +104,7 @@ $a = ( $condition ) ? ( ( $condition2 ) ? 42 : 23 ) : 'bar';
 while ( $something_is_true ) {
 	# code...
 }
-?>
+
 ```
 
 #### for
@@ -117,7 +117,7 @@ $length = strlen( $foo );
 for ( $i = 0; $i < $length; $i++ ) { 
 	# code...
 }
-?>
+
 ```
 #### foreach
 
@@ -126,7 +126,7 @@ for ( $i = 0; $i < $length; $i++ ) {
 foreach ( $data as $key => $value ) {
 	# code...
 }
-?>
+
 ```
 
 #### switch
@@ -143,7 +143,7 @@ switch ( $foo ) {
 		# code...
 		break;
 }
-?>
+
 ```
 
 ### Klammersetzung
@@ -169,7 +169,7 @@ function foo()
         bar ();
     }
 }
-?>
+
 ```
 
 ### Klassen, Properties und Methoden
@@ -228,7 +228,7 @@ class Class_Name {
 	}
 
 }
-?>
+
 ```
 
 #### Aufruf
@@ -240,7 +240,7 @@ Zwischen dem Namen der Methode oder Funktion und der öffnenden Klammer darf kei
 bar();
 $foo->bar( $arg1 );
 Foo::bar( $arg2, $arg3 );
-?>
+
 ```
 
 Argumentlisten können zur Verbesserung der Lesbarkeit auf mehrere Zeilen aufgeteilt werden. Dann werden alle Elemente um eine Ebene eingerückt, das erste Argument steht auf einer eigenen Zeile und es befindet sich genau ein Argument auf jeder Zeile. Auch die schließende Klammer befindet sich auf einer neuen Zeile.
@@ -248,11 +248,11 @@ Argumentlisten können zur Verbesserung der Lesbarkeit auf mehrere Zeilen aufget
 ```php
 <?php
 $foo->bar(
-    $longArgument,
-    $longerArgument,
-    $muchLongerArgument
+    $long_argument,
+    $longer_argument,
+    $much_longer_argument
 );
-?>
+
 ```
 
 ### Arrays
@@ -263,10 +263,10 @@ Wir orientieren uns hier am Codex und Core von WordPress, den wir ein bisschen e
 <?php
 $my_array = array(
     'foo'    => $bar,
-	'rab'    => $oof,
-	'foobar' => $barfoo
+    'rab'    => $oof,
+    'foobar' => $barfoo
 );
-?>
+
 ```
 
 Mehrdimensionale Arrays schreibt man wie folgt, wobei das Array im Array immer ganz unten steht:
@@ -274,15 +274,15 @@ Mehrdimensionale Arrays schreibt man wie folgt, wobei das Array im Array immer g
 ```php
 <?php
 $my_array = array(
-	'foo'   	=> $bar,
-	'rab'		=> $oof,
-	'foobar'	=> array(
-		'bar'		=> $foo,
-		'oof'		=> $rab,
-		'barfoo'	=> $raboof
-	),
+    'foo'    => $bar,
+    'rab'    => $oof,
+    'foobar' => array(
+        'bar'    => $foo,
+        'oof'    => $rab,
+        'barfoo' => $raboof
+    ),
 );
-?>
+
 ```
 
 Mehrdimensionale Arrays mit mehr als fünf Parametern müssen ausgelagert werden:
@@ -290,19 +290,19 @@ Mehrdimensionale Arrays mit mehr als fünf Parametern müssen ausgelagert werden
 ```php
 <?php
 $labels = array(
-	'name'			=> __( 'Foo', $this->get_textdomain() ),
-	'add_new'		=> __( 'Add Foo', $this->get_textdomain() ),
-	'new_item'		=> __( 'New Foo', $this->get_textdomain() ),
-	'all_items'		=> __( 'All Foo', $this->get_textdomain() ),
-	'view_item'		=> __( 'View Foo', $this->get_textdomain() ),
-	'edit_item'		=> __( 'Edit Foo', $this->get_textdomain() ),
-	'not_found'		=> __( 'No Foo added yet', $this->get_textdomain() ),
-	'menu_name'		=> __( 'Foo', $this->get_textdomain() ),
-	'add_new_item'		=> __( 'Add New Foo', $this->get_textdomain() ),
-	'search_items'		=> __( 'Search Foo', $this->get_textdomain() ),
-	'singular_name'		=> __( 'Foo', $this->get_textdomain() ),
-	'parent_item_colon'	=> __( 'Parent Foo', $this->get_textdomain() ),
-	'not_found_in_trash'	=> __( 'Nothing found in trash', $this->get_textdomain() ),
+	'name'               => __( 'Foo', $this->get_textdomain() ),
+	'add_new'            => __( 'Add Foo', $this->get_textdomain() ),
+	'new_item'           => __( 'New Foo', $this->get_textdomain() ),
+	'all_items'          => __( 'All Foo', $this->get_textdomain() ),
+	'view_item'          => __( 'View Foo', $this->get_textdomain() ),
+	'edit_item'          => __( 'Edit Foo', $this->get_textdomain() ),
+	'not_found'          => __( 'No Foo added yet', $this->get_textdomain() ),
+	'menu_name'          => __( 'Foo', $this->get_textdomain() ),
+	'add_new_item'       => __( 'Add New Foo', $this->get_textdomain() ),
+	'search_items'       => __( 'Search Foo', $this->get_textdomain() ),
+	'singular_name'      => __( 'Foo', $this->get_textdomain() ),
+	'parent_item_colon'  => __( 'Parent Foo', $this->get_textdomain() ),
+	'not_found_in_trash' => __( 'Nothing found in trash', $this->get_textdomain() ),
 );
 
 $support = array(
@@ -316,19 +316,19 @@ $support = array(
 );
 
 $args = array(
-	'public'		=> TRUE,
-	'labels'		=> $labels,
-	'show_ui'		=> TRUE,
-	'rewrite'		=> TRUE,
-	'supports'		=> $support,
-	'query_var'		=> TRUE,
-	'has_archive'		=> TRUE,
-	'hierarchical'		=> FALSE,
-	'menu_position'		=> NULL,
-	'capability_type'	=> 'post',
-	'publicly_queryable'	=> TRUE
+	'public'             => TRUE,
+	'labels'             => $labels,
+	'show_ui'            => TRUE,
+	'rewrite'            => TRUE,
+	'supports'           => $support,
+	'query_var'          => TRUE,
+	'has_archive'        => TRUE,
+	'hierarchical'       => FALSE,
+	'menu_position'      => NULL,
+	'capability_type'    => 'post',
+	'publicly_queryable' => TRUE
 );
-?>
+
 ```
 
 Bei Zugriff auf Arrays sind in den eckigen Klammern, anders als im WordPress Codex, immer Leerzeichen zu setzen.
@@ -336,7 +336,7 @@ Bei Zugriff auf Arrays sind in den eckigen Klammern, anders als im WordPress Cod
 ```php
 <?php
 $element = $field[ 'foo' ][ $bar ];
-?>
+
 ```
 
 ## Namenskonventionen
@@ -437,7 +437,7 @@ function the_vcard_name( $first = NULL, $last = NULL ) {
 	<span class="family-name"><?php echo $last; ?></span>
 	<?php
 }
-?>
+
 ```
 
 In HTML-Abschnitten ist die [Alternative Syntax für Kontrollstrukturen](http://php.net/manual/de/control-structures.alternative-syntax.php) zu verwenden.
