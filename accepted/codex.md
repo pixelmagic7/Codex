@@ -392,7 +392,7 @@ Ein Doctype ist Pflicht. Im Normalfall sollte der `html5` Doctype verwendet werd
 <span class="example">Dies ist ein Beispiel</span>
 ```
 
-- Blockelemente sollten immer eingerückt werden. Inline-Elemente können eingerückt werden, um die Lesbarkeit zu verbessern.
+- Blockelemente sollen immer eingerückt werden. Inline-Elemente müssen eingerückt werden, um die Lesbarkeit zu verbessern.
 
 ```html
 <!-- gut -->
@@ -476,7 +476,7 @@ $post_id = $post->ID;
 
 // besser:
 $post_id = get_the_ID();
-?>
+
 ```
 
 ### Plugin Dateistruktur
