@@ -1,0 +1,171 @@
+require "uglifier"       # gem install uglifier, requires node.js
+require "yui/compressor" # gem install yui-compressor
+require "fileutils"
+
+desc "prepare javascript files for production"
+task "prepare:js" do
+	minify "js/*.js" do |file|
+		Uglifier.compile File.read(file)
+	end
+end
+
+desc "prepare css files for production"
+task "prepare:css" do
+	minify "css/*.css" do |file|
+		YUI::CssCompressor.new.compress File.read(file)
+	end
+end
+
+desc "prepare all assets for production"
+task :prepare => ["prepare:js", "prepare:css"] do
+	
+end
+
+# Minify a set of files using the given method.
+# 
+# glob  - filenames found by expanding the pattern, e.g. *.js
+#         automatically skips all files without ".dev."
+# block - takes file name and is expected to return minified file contents
+def minify(glob, &block)
+	Dir.glob(glob) do |file|
+		next unless file.match /\.dev\./
+		puts "> preparing #{file}"
+
+		# minify
+		minified = block.call file
+
+		# write to production file
+		file_parts = file.split(".")
+		new_file  = "#{file_parts[0]}.#{file_parts[2]}"
+		File.open(new_file, 'w') { |f| f.write minified }
+	end	
+end
+
+desc "create basic plugin files and directories"
+task :init do
+	# create directories
+	%w{css images inc js languages lib}.each do |dir|
+		Dir.mkdir dir unless File.directory? dir
+	end
+	# touch files
+	%w{css/admin.dev.css css/frontend.dev.css js/admin.dev.js js/frontend.dev.js}.each do |file|
+		FileUtils.touch file unless File.exists? file
+	end
+	# template files
+	File.open('inc/autoload.php', 'w') {|f| f.write FileTemplates.autoload} unless File.exists? 'inc/autoload.php'
+	pluginfile = File.basename(Dir.getwd) + '.php'
+	File.open(pluginfile, 'w') {|f| f.write FileTemplates.pluginfile} unless File.exists? pluginfile
+end
+
+######################### 
+#       TEMPLATES       #
+#########################
+ 
+module FileTemplates
+	def self.pluginfile
+		plugindir   = File.basename(Dir.getwd)
+		pluginfile  = plugindir + '.php'
+
+		dir_parts   = plugindir.split("-")
+
+		pluginname  = dir_parts.map(&:capitalize).join(" ")
+
+		if dir_parts.count > 1
+			pluginclass = dir_parts.map(&:capitalize)[1,10].join("_")
+		else
+			pluginclass = dir_parts.map(&:capitalize).join("_")
+		end
+		<<-PHP
+<?php
+/**
+ * Plugin Name: #{pluginname}
+ * Plugin URI:  inpsyde.com
+ * Text Domain: #{plugindir} 
+ * Domain Path: /languages
+ * Description: 
+ * Version:     0.0.1
+ * Author:      inpsyde GmbH
+ * Author URI:  http://inpsyde.com/
+ * License:     GPLv3
+ */
+
+$correct_php_version = version_compare( phpversion(), '5.3', '>=' );
+
+if ( ! $correct_php_version ) {
+    echo "This Plugin requires <strong>PHP 5.3</strong> or higher.<br>";
+    echo "You are running PHP " . phpversion();
+    exit;
+}
+
+// autoloader
+require_once 'inc/autoload.php';
+
+// kickoff
+add_action( 'plugins_loaded', array( '\\Inpsyde\\#{pluginclass}\\#{pluginclass}', 'init' ) );		
+PHP
+	end
+
+	def self.autoload
+		<<-PHP
+<?php
+spl_autoload_register( function ( $class_name ) {
+
+	$camelcase_to_snakecase = function ( $string ) {
+		return preg_replace( '/([a-z])([A-Z])/', '$1_$2', $string );
+	};
+
+	$split  = explode( '\\\\', $class_name );
+	// remove "Inpsyde" namespace
+	$vendor = array_shift( $split );
+
+	if ( ! strlen( $vendor ) )
+		$vendor = array_shift( $split );
+	
+	// only load classes prefixed inside "Inpsyde" namespace
+	if ( $vendor != "Inpsyde" )
+		return false;
+
+	// remove plugin namespace as it is not represented as dir
+	array_shift( $split );
+	
+	// class name without namespace
+	$class_name = array_pop( $split );
+	// CamelCase to snake_case
+	$class_name = $camelcase_to_snakecase( $class_name );
+
+	// the rest of the namespace, if any
+	$namespaces = $split;
+
+	// library directory
+	$base_dir = dirname( dirname( __FILE__ ) );
+	$libs = array(
+		$base_dir . '/inc/',
+		$base_dir . '/lib/'
+	);
+
+	$class_file_name = "class-$class_name.php";
+	
+	// register all possible paths for the class
+	$possibilities = array();
+	foreach ( $libs as $lib ) {
+		if ( count( $namespaces ) >= 1 ) {
+			$possibilities[] = $lib . strtolower( implode( '/', array_map( $camelcase_to_snakecase, $namespaces ) ) . '/' . $class_file_name );
+		} else {
+			$possibilities[] = $lib . strtolower( $class_file_name );
+		}
+	}
+
+	// search for the class
+	foreach ( $possibilities as $file ) {
+		if ( file_exists( $file ) ) {
+			require_once( $file );
+			return true;
+		}
+	}
+	
+	return false;
+} );
+PHP
+	end
+end
+
