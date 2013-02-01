@@ -540,7 +540,7 @@ if ( ! class_exists( 'Class_Name' ) ) {
 class Class_Name {
     // ...      
 }
-?>
+
 ```
 
 ### PHP 5.3 Plugin Vorlage
@@ -556,7 +556,7 @@ Wenn ein Plugin für PHP 5.3 entwickelt wird, sollte die Plugindatei wie im Beis
  * Domain Path: /languages
  * Description: A small description
  * Version:     0.0.1
- * Author:      Max Mustermann
+ * Author:      Inpsyde GmbH
  * Author URI:  http://inpsyde.com/
  * License:     GPLv3
  */
