@@ -1,6 +1,6 @@
 # Inpsyde Theme Codex
 
-Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen, die das bestmögliche Erstellen von WordPress Themes zum Ziel hat. Dabei werden Themen wie Sicherheit, Plugin Kompatibilität und die Unterstützung von dynamisch erstellten Inhalten berücksichtigt.
+Dieses Dokument soll bei Entwicklung von Themes helfen. Es listet diverse Themen, die das bestmögliche Erstellen von WordPress Themes zum Ziel hat. Dabei werden Themen wie Sicherheit, Plugin vs. Theme und die Unterstützung von dynamisch erstellten Inhalten berücksichtigt.
 
 ## Escaping
  * Alle dynamischen Daten sichern mit `esc_attr()` bevor sie in html gerändert werden
