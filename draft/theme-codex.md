@@ -24,7 +24,7 @@ Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen,
 		__( mytheme_function(), 'textdomain' ); // Single functions
 		```
 
-## Enqueues{#enqueue}
+## Enqueues
  1. Die richtigen Hooks verwenden, für Scripte und Stylesheets
 	* Frontend: `wp_enqueue_scripts`
 	* Backend:  `admin_enqueue_scripts` 
@@ -37,7 +37,7 @@ Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen,
 		wp_enqueue_style( 'mytheme-opensans', "$protocol://fonts.googleapis.com/css?family=Open+Sans" );
 		```
 
- 1. Suffix beachten{#suffix}
+ 1. Suffix beachten
 
 		```php
 		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.dev' : '';
@@ -52,10 +52,10 @@ Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen,
 
 ## Scripte
  1. Scripte aus dem Core bevorzugen
- 1. Scripte als lesbare und minifizierte Version ausliefern; siehe [Suffix beachten](#suffix)
+ 1. Scripte als lesbare und minifizierte Version ausliefern; siehe [Suffix beachten](#enqueues)
 
 ## Stylesheets
- 1. Alle Stylesheets via "[Enqueue](#enqueue)" einreihen
+ 1. Alle Stylesheets via "[Enqueue](#escaping)" einreihen
  1. Vermeide `overflow: hidden;`, Alternative [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/)
  1. Vermeide `!important`
  1. Vermeide Inline Styles
