@@ -31,10 +31,12 @@ __( mytheme_function(), 'textdomain' ); // Single functions
 	* Login:    `login_enqueue_scripts`
 	* Spezielle Seiten: `admin_print_styles-{$hook_suffix}` und `admin_print_scripts-{$hook_suffix}`
  2. Protokoll beachten
+
 ```php
 $protocol = is_ssl() ? 'https' : 'http';
 wp_enqueue_style( 'mytheme-opensans', "$protocol://fonts.googleapis.com/css?family=Open+Sans" );
 ```
+
  3. Suffix beachten
 ```php
 $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.dev' : '';
@@ -63,6 +65,7 @@ wp_register_script(
  1. Verwende Transients für das Cachen von Queries
  1. Vermeide `query_posts()`! Wenn der Main Query verändert werden soll, dann nutze den Filter `pre_get_posts` oder erstelle eine neues `WP_Query` Objekt.
  1. Leere Werte auf `post__in` verhindern, da dies auf Fehler läuft. Wird der Parameter dynamisch befüllt, so muss er im Vorfeld geprüft werden. 
+ 
 ```php
 if ( ! empty( $my_post_ids ) ) {
 	$my_posts = new WP_Query( array(
@@ -73,6 +76,7 @@ if ( ! empty( $my_post_ids ) ) {
 	) );
 }
 ```
+
  1. Laufzeit Queries (Bspw. Taxonomien) sollten über eine große Menge getestet werden um Fehler zu identifizieren ~10.000
 
 ## Plugin vs. Theme
