@@ -2,7 +2,7 @@
 
 Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen, die das bestmögliche Erstellen von WordPress Themes zum Ziel hat. Dabei werden Themen wie Sicherheit, Plugin Kompatibilität und die Unterstützung von dynamisch erstellten Inhalten berücksichtigt.
 
-## Escaping{#esc}
+## Escaping
  1. Alle dynamischen Daten sichern mit `esc_attr()` bevor sie in html gerändert werden
  1. Alle dynamischen URLs sichern mit `esc_url()`
  1. Wenn dyn. js-Daten in html verwendet werden, dann sichern mit `esc_js()`
@@ -11,18 +11,18 @@ Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen,
 ## Internationalisierung
  1. Alle für Benutzer sichtbaren Texte müssen übersetzbar sein, Verwendung von `__()`, `_e()` etc. (Ausnahme: Kundenwunsch)
  1. HTML innerhalb von Zeichenketten vermeiden
- 1. Die Ausgebe von `sprintf()` muss gesichert werden, siehe [Escaping](#esc)
+ 1. Die Ausgebe von `sprintf()` muss gesichert werden, siehe [Escaping](#escaping)
  1. `printf()` Platzhalter müssen gesichert werden
  1. Kontexte beachten `_x( 'Comment', 'column name', 'textdomain' )`, siehe [WP Codex][codex_contect]
  1. Anti Patterns vermeiden, siehe [WP Codex][codex_antipattern]
  
-		```php
-		// bad examples
-		__( '', 'textdomain' ); // Empty strings.
-		__( $variable, 'textdomain' ); // Single variables.
-		printf( __( '%s' ), $var ); // Single placeholders
-		__( mytheme_function(), 'textdomain' ); // Single functions
-		```
+```php
+// bad examples
+__( '', 'textdomain' ); // Empty strings.
+__( $variable, 'textdomain' ); // Single variables.
+printf( __( '%s' ), $var ); // Single placeholders
+__( mytheme_function(), 'textdomain' ); // Single functions
+```
 
 ## Enqueues
  1. Die richtigen Hooks verwenden, für Scripte und Stylesheets
@@ -32,23 +32,23 @@ Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen,
 	* Spezielle Seiten: `admin_print_styles-{$hook_suffix}` und `admin_print_scripts-{$hook_suffix}`
  1. Protokoll beachten
 
-		```php
-		$protocol = is_ssl() ? 'https' : 'http';
-		wp_enqueue_style( 'mytheme-opensans', "$protocol://fonts.googleapis.com/css?family=Open+Sans" );
-		```
+```php
+$protocol = is_ssl() ? 'https' : 'http';
+wp_enqueue_style( 'mytheme-opensans', "$protocol://fonts.googleapis.com/css?family=Open+Sans" );
+```
 
  1. Suffix beachten
 
-		```php
-		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.dev' : '';
-		wp_register_script(
-			'Key', 
-			plugins_url( '/js/script' . $suffix. '.js', plugin_basename( __FILE__ ) ), 	
-			array( 'jquery' ),
-			'',
-			TRUE
-		);
-		```
+```php
+$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.dev' : '';
+wp_register_script(
+	'Key', 
+	plugins_url( '/js/script' . $suffix. '.js', plugin_basename( __FILE__ ) ), 	
+	array( 'jquery' ),
+	'',
+	TRUE
+);
+```
 
 ## Scripte
  1. Scripte aus dem Core bevorzugen
@@ -67,16 +67,16 @@ Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen,
  1. Vermeide `query_posts()`! Wenn der Main Query verändert werden soll, dann nutze den Filter `pre_get_posts` oder erstelle eine neues `WP_Query` Objekt.
  1. Leere Werte auf `post__in` verhindern, da dies auf Fehler läuft. Wird der Parameter dynamisch befüllt, so muss er im Vorfeld geprüft werden. 
  
-		```php
-		if ( ! empty( $my_post_ids ) ) {
-			$my_posts = new WP_Query( array(
-				'post__in'       => $my_post_ids,
-				'post_status'    => 'publish',
-				'posts_per_page' => 10,
-				'no_found_rows'  => TRUE,
-			) );
-		}
-		```
+```php
+if ( ! empty( $my_post_ids ) ) {
+	$my_posts = new WP_Query( array(
+		'post__in'       => $my_post_ids,
+		'post_status'    => 'publish',
+		'posts_per_page' => 10,
+		'no_found_rows'  => TRUE,
+	) );
+}
+```
 
  1. Laufzeit Queries (Bspw. Taxonomien) sollten über eine große Menge getestet werden um Fehler zu identifizieren ~10.000
 
