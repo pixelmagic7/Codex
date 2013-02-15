@@ -13,7 +13,7 @@ Dieses Dokument soll bei Entwicklung von Themes helfen.Es listet diverse Themen,
  * HTML innerhalb von Zeichenketten vermeiden
  * Die Ausgebe von `sprintf()` muss gesichert werden, siehe [Escaping](#escaping)
  * `printf()` Platzhalter müssen gesichert werden
- * Kontexte beachten `_x( 'Comment', 'column name', 'textdomain' )`, siehe [WP Codex][codex_contect]
+ * Kontexte beachten `_x( 'Comment', 'column name', 'textdomain' )`, siehe [WP Codex][codex_context]
  * Anti Patterns vermeiden, siehe [WP Codex][codex_antipattern]
  
 ```php
@@ -81,8 +81,62 @@ if ( ! empty( $my_post_ids ) ) {
 
  * Laufzeit Queries (Bspw. Taxonomien) sollten über eine große Menge getestet werden um Fehler zu identifizieren ~10.000
 
-## Plugin vs. Theme
-Denke über die Einbindung von Funktionen nach, die ggf. nicht für die Darstellung des Themes gebraucht werden. Trennung Plugin Funktion, die Erweitert und Funktionen liefert und nichts mit der Darstellung zu tun haben, gehören in Plugins. ..
+## Theme vs. Plugin
 
-[codex_contect]: http://codex.wordpress.org/I18n_for_WordPress_Developers#Disambiguation_by_context
+**Theme oder Plugin &mdash; Präsentation von Inhalt oder das Erstellen, die Verwaltung von Inhalt**
+
+Denke über die Einbindung von Funktionen nach, die ggf. nicht für die Darstellung im Theme gebraucht werden.
+
+## Theme Check Liste
+ * Anforderungen dem Theme beilegen; bevorzugt in der `readme.md` im Repo
+ * PHP Kommentare prüfen
+
+```php
+/**
+ * Theme Name:  Name Mustermann
+ * Description: A small Theme for <customer x>
+ * Version:     mm/dd/yyyy  2.3.0
+ * Author:      Inpsyde GmbH
+ * Author URI:  http://inpsyde.com/
+ * License:     GPLv3
+ * License URI: assets/license.txt
+ */
+```
+ * Codex prüfen
+ * Daten auf Basis [WP Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test) prüfen
+ * Dateien prüfen
+	 * `index.php`
+	 * `404.php`
+	 * `style.css`
+	 * `screenshot.png` - 600 x 450px (HiDPI Ready)
+	 * `readme.md`
+	 * `license.txt`
+ * `functions.php` vorhanden
+	 * Einbindung der Funktionen via Hook, min. `after_setup_theme`
+	 * Codex für PHP beachten
+ * Internationalisierung beachten, siehe [Internationalisierung](#internationalisierung)
+	 * Unterordner `languages`
+	 * `de_DE.pot`
+	 * `de_DE.po` und `de_DE.mo`
+	 * Initialisierung in der `functions.php`
+ * Template Parts im Unterordner `parts` ablegen
+ * Struktur für js, css, scss, etc. beachten
+ * Suffix beachten
+ * Prüfung via Plugin "[Log Deprecated Notices](http://wordpress.org/extend/plugins/log-deprecated-notices/)"
+	 * Nützliche Erweiterung [Extender](http://wordpress.org/extend/plugins/log-deprecated-notices-extender/)
+ * [Theme Check](http://wordpress.org/extend/plugins/theme-check/) plugin (nicht schön, aber nützlich)
+	 * Ggf. [THeme Mentor](https://github.com/mpeshev/Theme-Mentor)
+ * Browsertest - Anforderungen des Kunden beachten
+ * Frontend Sicht-Prüfung
+ * Funktionsprüfung, manuell
+ * Prüfung Code
+	 * Javascripts im Footer (ggf. Ausnahmen)
+	 * Minifizierte Stylesheets und Scripte für die Liveversion
+	 * HTML Validator
+	 * CSS Validator
+	 * Console Webinspecter o.ä. beachten
+
+
+
+[codex_context]: http://codex.wordpress.org/I18n_for_WordPress_Developers#Disambiguation_by_context
 [codex_antipattern]: http://developer.wordpress.com/themes/i18n/#anti-patterns
