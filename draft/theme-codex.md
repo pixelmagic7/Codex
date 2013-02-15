@@ -125,7 +125,7 @@ Denke über die Einbindung von Funktionen nach, die ggf. nicht für die Darstell
  * Prüfung via Plugin "[Log Deprecated Notices](http://wordpress.org/extend/plugins/log-deprecated-notices/)"
 	 * Nützliche Erweiterung [Extender](http://wordpress.org/extend/plugins/log-deprecated-notices-extender/)
  * [Theme Check](http://wordpress.org/extend/plugins/theme-check/) plugin (nicht schön, aber nützlich)
-	 * Ggf. [THeme Mentor](https://github.com/mpeshev/Theme-Mentor)
+	 * Ggf. [Theme Mentor](https://github.com/mpeshev/Theme-Mentor)
  * Browsertest - Anforderungen des Kunden beachten
  * Frontend Sicht-Prüfung
  * Funktionsprüfung, manuell
