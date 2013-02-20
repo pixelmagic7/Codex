@@ -13,7 +13,9 @@ Dieses Dokument soll bei Entwicklung von Themes helfen. Es listet diverse Themen
  * HTML innerhalb von Zeichenketten vermeiden
  * Die Ausgebe von `sprintf()` muss gesichert werden, siehe [Escaping](#escaping)
  * `printf()` Platzhalter müssen gesichert werden
- * Kontexte beachten `_x( 'Comment', 'column name', 'textdomain' )`, siehe [WP Codex][codex_context]
+ * Kontexte bei Platzhaltern beachten `_x( 'Comment %s', '%s = Counter of comment to this post', 'textdomain' )`, siehe [WP Codex][codex_context]
+	 * Übersetzungen sind damit einfacher zu erstellen, da der String im Kontext erklärt wird
+	 * Weiteres Beispiel in [Issue #21](https://github.com/inpsyde/Codex/issues/21)
  * Anti Patterns vermeiden, siehe [WP Codex][codex_antipattern]
  
 ```php
@@ -26,10 +28,10 @@ __( mytheme_function(), 'textdomain' ); // Single functions
 
 ## Enqueues
  * Die richtigen Hooks verwenden, für Scripte und Stylesheets
-	* Frontend: `wp_enqueue_scripts`
-	* Backend:  `admin_enqueue_scripts` 
-	* Login:    `login_enqueue_scripts`
-	* Spezielle Seiten: `admin_print_styles-{$hook_suffix}` und `admin_print_scripts-{$hook_suffix}`
+	* Frontend:			`wp_enqueue_scripts`
+	* Backend:			`admin_enqueue_scripts` 
+	* Login:			`login_enqueue_scripts`
+	* Spezielle Seiten:	`admin_print_styles-{$hook_suffix}` und `admin_print_scripts-{$hook_suffix}`
 
  * Protokoll beachten
 
@@ -62,7 +64,7 @@ wp_register_script(
  * Vermeide Inline Styles
 
 ## Queries
- * Vermeide SQL Select, wenn möglich und nutze besser ein WP_Query Object
+ * Vermeide SQL Selects, wenn möglich und nutze besser ein WP_Query Object
  * Vermeide unendliche Queries. In der Regel heißt das, dass `post_per_page` oder `numberposts` einen Wert bekommen, nicht `-1`.
  * Verwende Transients für das Cachen von Queries
  * Vermeide `query_posts()`! Wenn der Main Query verändert werden soll, dann nutze den Filter `pre_get_posts` oder erstelle eine neues `WP_Query` Objekt.
