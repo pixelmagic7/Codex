@@ -86,6 +86,9 @@ if ( ! empty( $my_post_ids ) ) {
 ## Theme vs. Plugin
 
 **Theme oder Plugin &mdash; Präsentation von Inhalt oder das Erstellen, die Verwaltung von Inhalt**
+ 
+ * Funktion &mdash; Plugin
+ * Design &mdash; Theme, Child Theme
 
 Denke über die Einbindung von Funktionen nach, die ggf. nicht für die Darstellung im Theme gebraucht werden.
 
