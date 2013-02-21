@@ -551,7 +551,7 @@ class Class_Name {
  * Kontexte bei Platzhaltern beachten `_x( 'Comment %s', '%s = Counter of comment to this post', 'textdomain' )`
 	 * Übersetzungen sind damit einfacher zu erstellen, da der String im Kontext erklärt wird
 	 * Weiteres Beispiel in [Issue #21](https://github.com/inpsyde/Codex/issues/21)
- * Anti Patterns vermeiden, siehe [WP Codex][codex_antipattern]
+ * Anti Patterns vermeiden, siehe [WP Codex](http://developer.wordpress.com/themes/i18n/#anti-patterns)
  
 ```php
 // bad examples
@@ -590,3 +590,4 @@ if ( ! $correct_php_version ) {
 require_once 'plugin.php';
 
 ```
+
