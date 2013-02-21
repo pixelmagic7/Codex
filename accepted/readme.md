@@ -543,6 +543,24 @@ class Class_Name {
 
 ```
 
+### Internationalisierung
+ * Alle für Benutzer sichtbaren Texte müssen übersetzbar sein, Verwendung von `__()`, `_e()` etc. (Ausnahme: Kundenwunsch)
+ * HTML innerhalb von Zeichenketten vermeiden
+ * Die Ausgebe von `sprintf()` muss gesichert werden
+ * `printf()` Platzhalter müssen gesichert werden
+ * Kontexte bei Platzhaltern beachten `_x( 'Comment %s', '%s = Counter of comment to this post', 'textdomain' )`
+	 * Übersetzungen sind damit einfacher zu erstellen, da der String im Kontext erklärt wird
+	 * Weiteres Beispiel in [Issue #21](https://github.com/inpsyde/Codex/issues/21)
+ * Anti Patterns vermeiden, siehe [WP Codex][codex_antipattern]
+ 
+```php
+// bad examples
+__( '', 'textdomain' ); // Empty strings.
+__( $variable, 'textdomain' ); // Single variables.
+printf( __( '%s' ), $var ); // Single placeholders
+__( mytheme_function(), 'textdomain' ); // Single functions
+```
+
 ### PHP 5.3 Plugin Vorlage
 
 Wenn ein Plugin für PHP 5.3 entwickelt wird, sollte die Plugindatei wie im Beispiel aussehen. Das sorgt dafür, dass Nutzer mit einer zu alten PHP Version beim Aktivieren des Plugins eine ordentliche Fehlermeldung angezeigt bekommen anstatt z.B. eines Syntaxfehlers.
