@@ -108,7 +108,7 @@ Denke über die Einbindung von Funktionen nach, die ggf. nicht für die Darstell
  */
 ```
  * Codex prüfen
- * Daten auf Basis [WP Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test) prüfen
+ * Daten auf Basis [WP Theme Unit Test](http://codex.wordpress.org/Theme_Unit_Test) oder [wptest.io](http://wptest.io/) prüfen
  * Dateien prüfen
 	 * `index.php`
 	 * `404.php`
