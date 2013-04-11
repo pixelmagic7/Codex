@@ -17,6 +17,7 @@ Der Code zeigt eine Beispielklasse, wie sie genutzt werden kann und unsere Erfah
  * Mehr code, ggf. schwerer lesbar
 
 #### Source
+```php
 add_action( 'plugins_loaded', array ( Inpsyde_Plugin_Class_Example::get_instance(), 'plugin_setup' ) );
  
 class Inpsyde_Plugin_Class_Example {
@@ -103,4 +104,4 @@ class Inpsyde_Plugin_Class_Example {
 	}
 	
 } // end class
-
+```
