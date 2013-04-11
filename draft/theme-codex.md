@@ -2,6 +2,17 @@
 
 Dieses Dokument soll bei Entwicklung von Themes helfen. Es listet diverse Themen, die das bestmögliche Erstellen von WordPress Themes zum Ziel hat. Dabei werden Themen wie Sicherheit, Plugin vs. Theme und die Unterstützung von dynamisch erstellten Inhalten berücksichtigt.
 
+## Inhalt
+ * [Escaping](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#escaping)
+ * [Internationalisierung](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#internationalisierung)
+ * [Enqueues](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#enqueues)
+ * [Scripte](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#scripte)
+ * [Stylesheets](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#stylesheets)
+ * [Queries](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#queries)
+ * [Theme vs. Plugin](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#theme-vs-plugin)
+ * [Theme Check Liste](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#theme-check-liste)
+ * [Beispiele](https://github.com/inpsyde/Codex/blob/master/draft/theme-codex.md#beispiele)
+
 ## Escaping
  * Alle dynamischen Daten sichern mit `esc_attr()` bevor sie in html gerändert werden
  * Alle dynamischen URLs sichern mit `esc_url()`
@@ -141,7 +152,9 @@ Denke über die Einbindung von Funktionen nach, die ggf. nicht für die Darstell
 	 * CSS Validator
 	 * Console Webinspecter o.ä. beachten
 
-
+## Beispiele
+ * [inTheme](https://github.com/inpsyde/intheme)
+ * [WordPress-Basis-Theme](https://github.com/bueltge/WordPress-Basis-Theme)
 
 [codex_context]: http://codex.wordpress.org/I18n_for_WordPress_Developers#Disambiguation_by_context
 [codex_antipattern]: http://developer.wordpress.com/themes/i18n/#anti-patterns
