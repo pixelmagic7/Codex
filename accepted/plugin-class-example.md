@@ -18,7 +18,10 @@ Der Code zeigt eine Beispielklasse, wie sie genutzt werden kann und unsere Erfah
 
 #### Source
 ```php
-	add_action( 'plugins_loaded', array ( Inpsyde_Plugin_Class_Example::get_instance(), 'plugin_setup' ) );
+	add_action( 
+		'plugins_loaded',
+		array( Inpsyde_Plugin_Class_Example::get_instance(), 'plugin_setup' )
+	);
 	 
 	class Inpsyde_Plugin_Class_Example {
 	
