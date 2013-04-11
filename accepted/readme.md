@@ -1,5 +1,20 @@
 # Inpsyde Codex
 
+## Inhalt
+ * [Code Style Richtlinien](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#code-style-richtlinien)
+	 * [Dateikonventionen](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#dateikonventionen)
+	 * [Allgemeines](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#allgemeines)
+	 * [Kontrollstrukturen](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#kontrollstrukturen)
+	 * [Klammersetzung](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#klammersetzung)
+	 * [Klassen, Properties und Methoden](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#klassen-properties-und-methoden)
+	 * [Arrays](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#arrays)
+ * [Namenskonventionen](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#namenskonventionen])
+ * [Namespaces](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#namespaces)
+ * [HTML und Templates](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#html-und-templates)
+ * [WordPress spezifische Best Practices](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#wordpress-spezifische-best-practices)
+	 * [PHP 5.3 Plugin Vorlage](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#php-53-plugin-vorlage)
+ * [Beispiel Plugin Klassen-Aufbau]()
+
 ## Code Style Richtlinien
 
 Diese Sektion benennt allgemeine PHP Code Style Richtlinien. Sofern nicht anders benannt, gelten die Regeln als Pflicht und sind einzuhalten.
@@ -591,3 +606,6 @@ require_once 'plugin.php';
 
 ```
 
+### Beispiel Plugin Klassen-Aufbau
+
+ * siehe Dokument: [Beispiel Plugin Klassen-Aufbau](https://github.com/inpsyde/Codex/blob/master/accepted/plugin-class-example.md)
