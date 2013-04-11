@@ -13,7 +13,7 @@
  * [HTML und Templates](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#html-und-templates)
  * [WordPress spezifische Best Practices](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#wordpress-spezifische-best-practices)
 	 * [PHP 5.3 Plugin Vorlage](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#php-53-plugin-vorlage)
- * [Beispiel Plugin Klassen-Aufbau]()
+	 * [Beispiel Plugin Klassen-Aufbau](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#beispiel-plugin-klassen-aufbau)
 
 ## Code Style Richtlinien
 
