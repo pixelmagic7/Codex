@@ -54,10 +54,10 @@ wp_enqueue_style( 'mytheme-opensans', "$protocol://fonts.googleapis.com/css?fami
  * Suffix beachten
 
 ```php
-$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.dev' : '';
+$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 wp_register_script(
 	'Key', 
-	plugins_url( '/js/script' . $suffix. '.js', plugin_basename( __FILE__ ) ), 	
+	plugins_url( '/js/script' . $suffix . '.js', plugin_basename( __FILE__ ) ), 	
 	array( 'jquery' ),
 	'',
 	TRUE
