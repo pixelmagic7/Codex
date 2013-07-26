@@ -8,7 +8,7 @@
 	 * [Klammersetzung](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#klammersetzung)
 	 * [Klassen, Properties und Methoden](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#klassen-properties-und-methoden)
 	 * [Arrays](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#arrays)
- * [Namenskonventionen](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#namenskonventionen])
+ * [Namenskonventionen](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#namenskonventionen)
  * [Namespaces](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#namespaces)
  * [HTML und Templates](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#html-und-templates)
  * [WordPress spezifische Best Practices](https://github.com/inpsyde/Codex/blob/master/accepted/readme.md#wordpress-spezifische-best-practices)
