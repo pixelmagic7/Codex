@@ -29,24 +29,24 @@ $hook = 'login_enqueue_scripts';
 
 // Fire filter
 add_filter( $hook, function() {
-
+	
 	// Check protocol
 	$protocol = is_ssl() ? 'https' : 'http';
-
+	
 	// Check suffix
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	
 	// Set script url
-	$script_url = plugins_url( '/js/script' . $suffix . '.js'
+	$script_url = plugin_dir_url( __FILE__ ) . '../js/script' . $suffix . '.js';
 	$script_url = str_replace( 'http', $protocol, $script_url );
-
+	
 	// register script
 	wp_register_script(
-		'myscript-key',		# slug
+		'myscript-key',			# slug
 		$script_url,			# script url
-		array( 'jquery' ),	# depencies
-		'',								# current version of script usual empty
-		TRUE							# show script in footer (recommended)
+		array( 'jquery' ),		# depencies
+		'',						# script version usually empty
+		TRUE					# show in footer (recommended)
 	);
 
 	// enqueue script
@@ -68,19 +68,14 @@ add_filter( $hook, function() {
 	wp_enqueue_script( 'myscript-key' );
 
 	// localization
-	// msk = *m*y*s*cript-*k*ey
-	wp_localize_script( 'myscript-key', 'msk_vars', namespace\load_js_vars() );
+	// msk = MyScript-Key
+	wp_localize_script( 'myscript-key', 'msk_vars', function() {
+		$localization = array(
+		
+		);
+		return $localization;
+	} );
 } );
-
-function load_js_vars() {
-
-	$loc = array(
-		'mystring_a'	=> __( 'My String A', TEXTDOMAIN ),
-		'mystring_b'	=> __( 'My String B', TEXTDOMAIN ),
-		'mystring_c'	=> __( 'My String C', TEXTDOMAIN ),
-	);
-	return $loc;
-}
 ```
 
 ## Dateien und Ordner
