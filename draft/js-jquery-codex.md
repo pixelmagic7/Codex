@@ -69,12 +69,11 @@ add_filter( $hook, function() {
 
 	// localization
 	// msk = MyScript-Key
-	wp_localize_script( 'myscript-key', 'msk_vars', function() {
-		$localization = array(
-		
-		);
-		return $localization;
-	} );
+	wp_localize_script( 'myscript-key', 'msk_vars', farray(
+		'my_string_a'	=> __( 'My String A', TEXTDOMAIN ),
+		'my_string_b'	=> __( 'My String B', TEXTDOMAIN ),
+		'my_string_c'	=> __( 'My String C', TEXTDOMAIN ),
+	) );
 } );
 ```
 
