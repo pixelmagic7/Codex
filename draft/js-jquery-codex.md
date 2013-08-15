@@ -194,13 +194,27 @@ while ( something_is_true ) {
 
 #### for
 
-Aus Performancegründen sollten die Schleifengrenzen vor der `for`-Schleife berechnet werden. Da JavaScript von Haus aus jedoch kein `foreach` kennt, können wir nur auf `for` zurück greifen.
+##### Arrays
+Die Reihenfolge bleibt erhalten.
+Aus Performancegründen sollten die Schleifengrenzen vor der `for`-Schleife berechnet werden. 
 
 ```js
 var i  = 0;
 var length = foo.length;
 for ( i; i < length; i++ ) { 
 	// code
+}
+```
+
+##### Objekte
+Die Reihenfolge bleibt nicht erhalten.
+Möchte man die geerbten Eigenschaften nicht berücksichtigen (Standardfall), nutzt man `hasOwnProperty`.
+
+```js
+for ( var foo in bar ) {
+	if ( bar.hasOwnProperty( foo ) ) {
+		// code
+	}
 }
 ```
 
