@@ -206,7 +206,7 @@ for ( i; i < length; i++ ) {
 
 #### foreach
 
-Arbeiten wir jedoch mit jQuery können wir die [.each-Mehtode](http://api.jquery.com/jQuery.each/) nutzen.
+Arbeiten wir jedoch mit jQuery können wir die [.each-Methode](http://api.jquery.com/jQuery.each/) nutzen.
 
 ```js 
 var obj = {
