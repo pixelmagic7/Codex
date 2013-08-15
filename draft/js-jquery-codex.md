@@ -119,7 +119,7 @@ Diese Sektion benennt allgemeine JS Code Style Richtlinien. Sofern nicht anders 
 
 ### Kontrollstrukturen
 
-Im Kopf von Kontrollstrukturen finden keine Zuweisungen statt. Der JavaScript-Parser lässt dies auch nicht zu.
+Im Kopf von Kontrollstrukturen finden keine Zuweisungen statt. Der JavaScript-Parser lässt dies auch nicht zu (Außer bei Schleifen).
 
 ```js
 // richtig
