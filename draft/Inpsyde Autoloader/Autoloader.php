@@ -100,12 +100,12 @@ class Autoloader {
             if( $basenamespace == $this->_namespace ){
             	$file = $this->_basepath . str_replace( '\\', DIRECTORY_SEPARATOR, $class ) . $this->_extension;
             	
-            	if( file_exists( $file ) ) {
-		 			require_once $file;
-		 			return $file;
-		 		} else {
-		 			throw new \Exception( 'Class ' . $namespace . ' not found in ' . $file );
-		 		} 
+				if( file_exists( $file ) ) {
+					require_once $file;
+					return $file;
+				} else {
+					throw new \Exception( 'Class ' . $namespace . ' not found in ' . $file );
+				} 
             }
 
             $basenamespace = rtrim($prefix, '\\');   
